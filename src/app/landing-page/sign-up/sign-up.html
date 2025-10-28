@@ -1,0 +1,120 @@
+<div class="signUpContainer">
+  <div class="signUpHeader">
+    <div> Get Started! </div>
+  </div>
+  <form class="signUpForm" (ngSubmit)="onSubmit()" #signUpForm="ngForm" novalidate>
+    <div class="username">
+      <div class="inputGroup">
+        <input
+          type="text"
+          id="username"
+          name="username"
+          placeholder="👤 User Name"
+          required
+          maxlength="15"
+          [(ngModel)]="username"
+          #usernameInput="ngModel"
+        />
+        <!-- Show requirements when touched/dirty OR when submitted and invalid -->
+        <ul class="requirements"
+         *ngIf="(usernameInput.touched || usernameInput.dirty) || (submitted && usernameInput.invalid)">
+        <li [class.valid]="username.length > 0">Required</li>
+        <li [class.valid]="username.length <= 15">Max 15 characters</li>
+        </ul>
+        <div class="error"
+            *ngIf="(usernameInput.invalid && (usernameInput.touched || usernameInput.dirty)) || (submitted && usernameInput.invalid)">
+        <div *ngIf="usernameInput.errors?.['required']">Username is required.</div>
+        <div *ngIf="usernameInput.errors?.['maxlength']">Username cannot exceed 15 characters.</div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="inputGroup">
+      <input
+        type="email"
+        id="email"
+        name="email"
+        placeholder="✉️ Enter your email"
+        required
+        email
+        [(ngModel)]="email"
+        #emailInput="ngModel"
+      />
+      <!-- Show requirements when touched/dirty OR when submitted and invalid -->
+      <ul class="requirements"
+        *ngIf="(emailInput.touched || emailInput.dirty) || (submitted && emailInput.invalid)">
+      <li [class.valid]="email.length > 0">Required</li>
+      <li [class.valid]="emailInput.valid && email.length > 0">Valid email format</li>
+      </ul>
+      <div class="error"
+          *ngIf="(emailInput.invalid && (emailInput.touched || emailInput.dirty)) || (submitted && emailInput.invalid)">
+      <div *ngIf="emailInput.errors?.['required']">Email is required.</div>
+      <div *ngIf="emailInput.errors?.['email']">Enter a valid email.</div>
+      </div>
+    </div>
+    
+    <div class="inputGroup">
+      <input
+        type="password"
+        id="password"
+        name="password"
+        placeholder="🔑 Enter password"
+        required
+        [(ngModel)]="password"
+        #passwordInput="ngModel"
+        (input)="validatePassword()"
+      />
+      <!-- Show requirements when touched/dirty OR when submitted and password invalid -->
+      <ul class="password-requirements"
+          *ngIf="(passwordInput.touched || passwordInput.dirty) || (submitted && (!allPasswordValidationsMet() || passwordInput.invalid))">
+        <li [class.valid]="passwordValidations.length">Min 6 characters</li>
+        <li [class.valid]="passwordValidations.upper">At least one uppercase letter</li>
+        <li [class.valid]="passwordValidations.lower">At least one lowercase letter</li>
+        <li [class.valid]="passwordValidations.number">At least one number</li>
+        <li [class.valid]="passwordValidations.special">At least one special character</li>
+      </ul>
+      <div class="error"
+          *ngIf="(passwordInput.invalid && (passwordInput.touched || passwordInput.dirty)) || (submitted && passwordInput.invalid)">
+      <div *ngIf="passwordInput.errors?.['required']">Password is required.</div>
+      </div>
+    </div>
+    
+    <div class="inputGroup">
+      <input
+        type="password"
+        id="confirm-password"
+        name="confirmPassword"
+        placeholder="🔄️ Re-enter password"
+        required
+        [(ngModel)]="confirmPassword"
+        #confirmPasswordInput="ngModel"
+      />
+      <!-- Show requirements when touched/dirty OR when submitted and passwords don't match -->
+      <ul class="requirements"
+        *ngIf="(confirmPasswordInput.touched || confirmPasswordInput.dirty) || (submitted && (!passwordsMatch || confirmPasswordInput.invalid))">
+      <li [class.valid]="confirmPassword.length > 0">Required</li>
+      <li [class.valid]="passwordsMatch">Must match password</li>
+      </ul>
+      <div class="error"
+          *ngIf="(confirmPasswordInput.invalid && (confirmPasswordInput.touched || confirmPasswordInput.dirty)) || (submitted && confirmPasswordInput.invalid)">
+      <div *ngIf="confirmPasswordInput.errors?.['required']">Please confirm your password.</div>
+      </div>
+      <div class="error"
+          *ngIf="(confirmPassword && password && !passwordsMatch) && ((confirmPasswordInput.touched || confirmPasswordInput.dirty) || submitted)">
+      Passwords do not match.
+      </div>
+    </div>
+    
+    <div class="submitButtonContainer">
+      <button type="submit" class="submitButton"
+        [disabled]="
+          signUpForm.invalid ||
+          !usernameValid ||
+          !allPasswordValidationsMet() ||
+          !passwordsMatch
+        ">
+        Create an account
+      </button>
+    </div>
+  </form>
+</div>

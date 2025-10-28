@@ -1,0 +1,88 @@
+.landingPageContainer
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+    background-color: rgb(16, 16, 16);
+    font-family: monospace;
+    font-weight: 100;
+}
+.innerContainer
+{
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(39, 39, 39, 0.452);
+    padding: 2%;
+    border-radius: 10px;
+    box-shadow: 0px 0px 5px rgba(58, 58, 58, 0.5);
+}
+.signToggle {
+    display: flex;
+    flex-direction: row;
+    background-color: rgb(16, 16, 16);
+    width: 70%; /* Increased for better touch targets */
+    margin: 0 auto 2em auto;
+    padding: 0.3em;
+    border-radius: 30px;
+    color: rgb(90, 90, 90);
+    box-shadow: 0px 2px 8px rgba(47, 47, 47, 0.25);
+    justify-content: space-between;
+    transition: background 0.3s;
+}
+
+.signUpToggleButton,
+.signInToggleButton {
+    text-align: center;
+    border-radius: 30px;
+    padding: 0.7em 0;
+    width: 50%;
+    cursor: pointer;
+    font-size: 1.1em;
+    font-weight: 500;
+    transition: 
+        background 0.3s,
+        color 0.3s,
+        box-shadow 0.2s,
+        transform 0.1s;
+    user-select: none;
+}
+
+.signUpToggleButton.active,
+.signInToggleButton.active {
+    background: linear-gradient(to right, rgb(53, 53, 53), rgba(46, 46, 46, 0.502));
+    color: white;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+    z-index: 1;
+}
+
+.signUpToggleButton:not(.active):hover,
+.signInToggleButton:not(.active):hover {
+    background: rgba(60, 60, 60, 0.15);
+    color: #e0e0e0;
+    transform: scale(1.04);
+}
+
+@media (max-width: 600px) {
+    .innerContainer {
+        width: 95%;
+        padding: 4vw 2vw;
+    }
+    .signToggle {
+        width: 100%;
+        font-size: 1em;
+    }
+}
+.componentContainer
+{
+    padding: 1%;
+}
+.footer
+{
+    margin-top: 1%;
+    color: rgb(92, 92, 92);
+    font-size: 0.9em;
+}

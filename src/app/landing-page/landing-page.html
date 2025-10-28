@@ -1,0 +1,18 @@
+<div class = "landingPageContainer">
+    <div class = "innerContainer">
+        <div class = "signToggle">
+            <div (click)="goTo('signup')" [class.active]="currentMode==='signup'" class="signUpToggleButton">
+                <div> Sign Up </div>
+            </div>
+            <div (click)="goTo('signin')" [class.active]="currentMode==='signin'" class="signInToggleButton">
+                <div> Sign In </div>
+            </div>
+        </div>
+        <div class="componentContainer">
+            <router-outlet></router-outlet>
+        </div>
+        <div class="footer">
+            <div> By creating an account you agree to our Terms & Conditions.</div>
+        </div>
+    </div>
+</div>

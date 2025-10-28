@@ -1,0 +1,106 @@
+.signUpHeader
+{
+    color: white;
+    font-size: 1.5em;
+    margin-bottom: 5%;
+    margin-top: 4%;
+    font-weight: 500;
+}
+.signUpForm
+{
+    margin: 2% 0%;
+    width: 100%;
+    align-items: stretch;
+    justify-content: center;
+    display: flex;
+    padding: 2% 0%;
+    flex-direction: column;
+}
+.username
+{
+    display: flex;
+    flex-direction: row;
+    gap: 2%;
+    width: 100%;
+}
+.inputGroup
+{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 5%;
+    width: 100%;
+}
+input
+{
+    padding: 3% 3%;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    font-size: 1em;
+    font-family: monospace;
+    font-weight: 100;
+    background-color: rgba(46, 46, 46, 0.502);
+    color: white;
+}
+.submitButton {
+    margin-top: 3%;
+    margin-bottom: 3%;
+    padding: 3% 1%;
+    width: 40%;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    font-size: 1em;
+    font-family: monospace;
+    font-weight: 500;
+    background: linear-gradient(to left, rgb(255, 255, 255), rgba(255, 255, 255, 0.724));
+    color: rgb(0, 0, 0);
+    cursor: pointer;
+}
+.submitButton:disabled
+{
+    cursor: not-allowed;
+}
+
+.error {
+  color: #ff6b6b;
+  font-size: 0.9em;
+  margin-top: 0.2em;
+}
+
+.password-requirements {
+  list-style: none;
+  padding: 0;
+  margin: 0.5em 0 0 0;
+  font-size: 0.9em;
+}
+
+.password-requirements li {
+  color: #ff6b6b;
+  margin-bottom: 0.2em;
+  transition: color 0.2s;
+}
+
+.password-requirements li.valid {
+  color: #4caf50;
+}
+
+.requirements,
+.password-requirements {
+  list-style: none;
+  padding: 0;
+  margin: 0.5em 0 0 0;
+  font-size: 0.9em;
+}
+
+.requirements li,
+.password-requirements li {
+  color: #ff6b6b;
+  margin-bottom: 0.2em;
+  transition: color 0.2s;
+}
+
+.requirements li.valid,
+.password-requirements li.valid {
+  color: #4caf50;
+}

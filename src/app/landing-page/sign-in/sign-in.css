@@ -1,0 +1,136 @@
+.signUpContainer {
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+    display: flex;
+    flex-direction: column;
+}
+
+.signUpHeader {
+    color: white;
+    font-size: 1.5em;
+    margin-bottom: 5%;
+    margin-top: 4%;
+    font-weight: 500;
+}
+.signUpForm {
+    width: 100%;
+    align-items: stretch;
+    justify-content: center;
+    display: flex;
+    padding: 2% 0%;
+    flex-direction: column;
+}
+
+.inputGroup {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 5%;
+    width: 100%;
+}
+
+input {
+    padding: 0.9em 1em;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    font-size: 1em;
+    font-family: monospace;
+    font-weight: 100;
+    background-color: rgba(46, 46, 46, 0.502);
+    color: white;
+    transition: background 0.2s, box-shadow 0.2s;
+}
+
+input:focus {
+    background-color: rgba(66, 66, 66, 0.7);
+    box-shadow: 0 0 0 2px #b3b3b3;
+}
+
+.submitButtonContainer {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.submitButton {
+    margin-top: 2%;
+    padding: 0.7em 0;
+    width: 50%;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    font-size: 1em;
+    font-family: monospace;
+    font-weight: 500;
+    background: linear-gradient(to left, rgb(255, 255, 255), rgba(255, 255, 255, 0.724));
+    color: rgb(0, 0, 0);
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+}
+
+.submitButton:hover {
+    background: linear-gradient(to right, #e0e0e0, #bdbdbd);
+    color: #222;
+}
+
+.forgotPassword {
+    margin: 1em 0 0.5em 0;
+    color: #b3b3b3;
+    font-size: 0.95em;
+    text-align: center;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.forgotPassword:hover {
+    color: #fff;
+    text-decoration: underline;
+}
+
+.divider {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin: 1.5em 0;
+    color: #b3b3b3;
+    font-size: 0.95em;
+}
+
+.divider hr {
+    flex: 1;
+    border: none;
+    border-top: 1px solid #444;
+    margin: 0 0.5em;
+}
+
+.cloudLoginButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.7em;
+    background: #fff;
+    color: #222;
+    border-radius: 8px;
+    padding: 0.7em 0;
+    width: 100%;
+    font-size: 1em;
+    font-family: monospace;
+    font-weight: 500;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+    transition: background 0.2s, box-shadow 0.2s;
+    margin-top: 0.5em;
+    margin-bottom: 1em;
+}
+
+.cloudLoginButton:hover {
+    background: #f3f3f3;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+}
+
+.cloudLogo {
+    width: 1.5em;
+    height: 1.3em;
+    object-fit: contain;
+}
