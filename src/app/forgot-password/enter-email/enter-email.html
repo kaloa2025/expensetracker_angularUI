@@ -1,1 +1,25 @@
-<p>enter-email works!</p>
+<div class="holder">
+  <div class="container">
+    <div class="header">
+      <div class="icon">✉️</div>
+      <div class="heading">Forgot Password?</div>
+      <div class="description">Please enter your registered email to generate OTP.</div>
+    </div>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()" class="form">
+      <input 
+        formControlName="email" 
+        type="email"
+        placeholder="Enter your email here"
+        [class.error]="form.get('email')?.invalid && form.get('email')?.touched"
+      >
+      
+      <div class="requirement" *ngIf="form.get('email')?.invalid && form.get('email')?.touched">
+        Please enter your correct registered email!
+      </div>
+      
+      <button type="submit" [disabled]="form.invalid">
+        Get 4 digit OTP
+      </button>
+    </form>
+  </div>
+</div>

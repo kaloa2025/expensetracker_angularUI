@@ -1,0 +1,145 @@
+.holder {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #2c2c2c 0%, #000000 100%);
+  padding: 20px;
+  font-family: monospace;
+}
+
+.container {
+  background: rgba(43, 43, 43, 0.228);
+  border-radius: 20px;
+  padding: 40px;
+  box-shadow: 0 0px 20px rgba(45, 45, 45, 0.719);
+  max-width: 400px;
+  width: 100%;
+  text-align: center;
+}
+
+.header {
+  margin-bottom: 30px;
+}
+
+.icon
+{
+    font-size: 40px;
+    padding-bottom: 2%;
+}
+
+.heading {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: rgb(209, 209, 209);
+  margin-bottom: 10px;
+}
+
+.description {
+  color: #666;
+  font-size: 0.8rem;
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+
+.form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+input {
+  width: 70%;
+  padding: 15px 20px;
+  border: none;
+  border-radius: 12px;
+  background: #f8f9fa;
+  color: #585858;
+  font-size: 0.8rem;
+  font-family: monospace;
+  font-weight: 500;
+  text-align: center;
+  outline: none;
+  transition: all 0.3s ease;
+  margin-bottom: 10px;
+}
+
+input:focus {
+  background: white;
+  transform: scale(1.02);
+  box-shadow: 0 0 5px rgb(214, 214, 214);
+}
+
+input.ng-invalid.ng-touched {
+  box-shadow: 0 0 5px rgb(208, 104, 104);
+  background: #ffeaea;
+}
+
+hr {
+  display: none; /* Remove the hr line as it's not needed with the new input style */
+}
+
+.requirement {
+  color: #e74c3c;
+  font-size: 0.8rem;
+  margin-bottom: 3%;
+  margin-top: 2%;
+  animation-name: blink;
+  animation-duration: 1.5s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+.requirement:hover {
+  animation: none;
+}
+
+@keyframes blink {
+  0% { color: rgba(231, 76, 60, 0); }
+  100% { color: #e74c3c; }
+}
+
+button {
+  width: 45%;
+  padding: 12px;
+  background: linear-gradient(135deg, #6b6b6b 0%, #343434 100%);
+  border: none;
+  border-radius: 30px;
+  color: white;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: monospace;
+  margin-top: 20px;
+}
+
+button:enabled:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(123, 123, 124, 0.3);
+}
+
+button:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+  color: #999;
+}
+
+/* Responsive design */
+@media (max-width: 480px) {
+  .container {
+    padding: 30px 20px;
+    margin: 0 10px;
+  }
+  
+  .heading {
+    font-size: 1.5rem;
+  }
+  
+  button {
+    width: 80%;
+  }
+}

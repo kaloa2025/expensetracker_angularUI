@@ -48,7 +48,6 @@ export class SignUp {
   onSubmit() {
     this.submitted = true;
     
-    // Check if form is valid
     if (
       this.usernameValid &&
       this.email &&

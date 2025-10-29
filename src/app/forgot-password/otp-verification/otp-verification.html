@@ -1,1 +1,71 @@
-<p>otp-verification works!</p>
+<div class="otp-container">
+  <div class="otp-card">
+    <div class="header">
+      <div class="icon">🔐</div>
+      <div class="heading">Enter your Code</div>
+      <div class="description">We sent code to {{email}}</div>
+    </div>
+    
+    <form class="form" [formGroup]="form" (ngSubmit)="onSubmit()">
+      <div class="input-group">
+        <input 
+          id="digit1"
+          type="text" 
+          class="otp-input"
+          formControlName="digit1"
+          maxlength="1"
+          (input)="onInput($event, 'digit2')"
+        />
+        <input 
+          id="digit2"
+          type="text" 
+          class="otp-input"
+          formControlName="digit2"
+          maxlength="1"
+          (input)="onInput($event, 'digit3')"
+        />
+        <input 
+          id="digit3"
+          type="text" 
+          class="otp-input"
+          formControlName="digit3"
+          maxlength="1"
+          (input)="onInput($event, 'digit4')"
+        />
+        <input 
+          id="digit4"
+          type="text" 
+          class="otp-input"
+          formControlName="digit4"
+          maxlength="1"
+          (input)="onInput($event)"
+        />
+      </div>
+      
+      <div class="resend-section">
+        Didn't receive code? 
+        <button 
+          type="button" 
+          class="resend-btn" 
+          [disabled]="!canResend"
+          (click)="resend()"
+        >
+          <span *ngIf="!canResend">Resend in {{formattedTimer}}</span>
+          <span *ngIf="canResend">Click to Resend</span>
+        </button>
+      </div>
+      
+      <div class="requirement" *ngIf="!isFormValid() && form.touched">
+        <span class="error-text">Please enter all 4 digits</span>
+      </div>
+      
+      <button 
+        type="submit" 
+        class="verify-btn"
+        [disabled]="!isFormValid()"
+      >
+        Verify
+      </button>
+    </form>
+  </div>
+</div>
