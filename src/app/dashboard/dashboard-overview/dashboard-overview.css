@@ -1,0 +1,188 @@
+.main-component
+{
+    height: 100vh;
+    width: 100%;
+    color: rgb(55, 55, 55);
+    font-family: monospace;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.navbar {
+    top: 2;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    position: fixed;
+    gap: 3%;
+    font-size: 15px;
+    letter-spacing: 1px;
+}
+.navbar .logo {
+    margin-left: 1.5%;
+    color: #373737;
+    border: none;
+    padding: 1%;
+    border-radius: 2px;
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: none;
+}
+.navbar .signout-btn {
+    margin-right: 1.5%;
+    color: #373737;
+    border: none;
+    padding: 1%;
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: none;
+}
+.navbar .signout-btn:hover {
+    text-decoration: underline;
+}
+.navbar .logo:hover {
+    text-decoration: underline;
+}
+
+.container
+{
+    width: 100%;
+    margin-top: 3%;
+    display: flex;
+    flex-direction: row;
+    color : rgb(58, 58, 58);
+    gap: 3px;
+    font-family: monospace;
+}
+
+.left-profile-section
+{
+    width: 15%;
+    padding: 1%;
+    margin-left: 1%;
+    margin-right: 1%;
+    display: flex;
+    flex-direction: column;
+    gap: 1%;
+    float: left;
+}
+
+.heading
+{
+    font-size: 25px;
+    font-weight: 900;
+    margin-left: 1%;
+    margin-bottom: 5%;
+    letter-spacing: 1px;
+}
+
+.profile-display
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+}
+
+.details
+{
+    margin-top: 5%;
+    width: 100%;
+}
+
+.label
+{
+    font-size:xx-small;
+    margin-left: 2%;
+    padding-right: 5%;
+    padding-left: 5%;
+    z-index: 1000;
+    position: relative;
+    background-color: #ffffff;
+    margin-bottom: -3%;
+    width: fit-content;
+}
+
+.email, .username
+{
+    z-index: -1;
+    text-align: center;
+    padding: 8% 1%;
+    border : 1px solid #d8d8d8;
+    margin-bottom: 7%;
+}
+
+.email:hover, .username:hover
+{
+    box-shadow: 0px 0px 5px rgba(240, 240, 240, 0.863);
+}
+
+.update-bttn
+{
+    background-color: #373737;
+    color: #eeeeee;
+    text-align: center;
+    width: 98%;
+    padding: 4% 1%;
+    margin-bottom: 5%;
+    margin-top: 1%;
+    font-size: 14px;
+    letter-spacing: 1px;
+    cursor: pointer;
+    border : 1px solid #d8d8d8;
+}
+
+.left-profile-section hr
+{
+    width: 100%;
+    color: #ffffff;
+    border-color:#ffffff;
+    background-color: #ffffff;
+}
+.update-bttn:hover
+{
+    color: #373737;
+    background-color: #ffffff;
+}
+
+.container .left-profile-section .quick-links
+{
+    padding: 1%;
+}
+.quick-links div
+{
+    margin: 1% 0% 5% 0%;
+    padding: 5%;
+    border : 1px solid #d8d8d8;
+    text-align: center;
+    cursor: pointer;
+}
+
+.quick-links div:hover
+{
+    background-color: #373737;
+    color: #eeeeee;
+}
+
+
+.container .right-service-section
+{
+    padding: 0%;
+    width: 90%;
+    float: right;
+    background-color: #f5f5f5;
+    display: flex;
+    flex-direction: column;
+}
+
+.footer
+{
+    text-align: center;
+    padding: 1%;
+    font-size: xx-small;
+    color: rgb(155, 155, 155);
+    background-color: rgb(248, 247, 247);
+}

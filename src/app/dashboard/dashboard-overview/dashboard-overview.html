@@ -1,1 +1,164 @@
-<p>dashboard-overview works!</p>
+<div class="main-component">
+    <div class = "navbar">
+        <div class="logo">HOME</div>
+        <div class="signout-btn">LOG OUT</div>
+    </div>
+        <div class = "container">
+            <div class = "left-profile-section">
+                <div class = "profile-display">
+                    <div class="heading">HELLO,</div>
+                    <div class = "details">
+                        <div class="label">Username</div>
+                        <div class="username">Username!</div>
+                        <div class="label">Email</div>
+                        <div class="email">Email</div>
+                    </div>
+                    <div class="update-bttn">EDIT</div>
+                </div>
+                <hr>
+                <div class="quick-links">
+                    <div>± New Expense</div>
+                    <div>◙ Get Report</div>
+                </div>
+            </div>
+            <div class = "right-service-section">
+                <div class = "left-service-section">
+                    <div class="scan-expense-section"> 
+                        <img>
+                        <div class="description">Scan your Receipt, Add Transaction Now!</div>
+                    </div>
+                    <div class="category-section">
+                        <div class="add-category-section">
+                            <div>New Category</div>
+                            <div class="new-category-icon">ICON</div>
+                            <div class="icon-label">Select an ion suitable for this category</div>
+                            <div class="name-label">Name</div>
+                            <input class="category-name" type="text" placeholder="category name"/>
+                            <div class="bttns">
+                                <div class="add-category-bttn">Add Category</div>
+                                <div class="cancel-bttn">Cancel</div>
+                            </div>
+                        </div>
+                        <input class="search-bar" placeholder="Search Category"/>
+                        <div class="category-list">
+                            <div class="category-tag">
+                                <img>
+                                <div class="category-name">category1</div>
+                                <div class="category-edit-bttn">✏️</div>
+                            </div>
+                            <div class="category-tag">
+                                <img>
+                                <div class="category-name">category2</div>
+                                <div class="category-edit-bttn">✏️</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bar-graph-section">
+                        <div class="bar-graph">Grpah</div>
+                        <div class="grpah-description">This Grpah computes expenses tracked for each category</div>
+                    </div>
+                </div>
+                <div class = "right-service-section">
+                    <div class="new-expense"> 
+                        <div class="new-expense-form">
+                            <div class="header">
+                                <div class="heading-icon">x</div>
+                                <div class="heading">New Expense</div>
+                            </div>
+                            <div class="amount-section">
+                                <input type="number" placeholder="00" class="amount">
+                                <div class="amount-symbol">RS</div>
+                            </div>
+                            <div class="form">
+                                <input class="description" placeholder="Description">
+                                <input class="revicer-name" placeholder="Enter Receiver's Name">
+                                <div class="expense-date">
+                                    <input type="number" placeholder="dd" class="date" maxlength="2">
+                                    <input type="number" placeholder="mm" class="month" maxlength="2">
+                                    <input type="number" placeholder="yyyy" class="year" maxlength="4">
+                                </div>
+                                <div class="expense-type">
+                                    <div class="type-option">Expense</div>
+                                    <div class="type-option">Income</div>
+                                    <div class="type-option">Investment</div>
+                                    <div class="type-option">Other</div>
+                                </div>
+                                <select class="category-select" id="category-dropdown" name="categoryOption">
+                                    <option value="option1">category1</option>
+                                    <option value="option1">category2</option>
+                                </select>
+                                <div class="add-bttn">
+                                    Add Expense
+                                </div>
+                            </div>
+                        </div>
+                        <div class="calender">
+                            <div class="header">
+                                <select class="month">
+                                    <option value="1">Jan</option>
+                                </select>
+                                <select class="year">
+                                    <option value="1">2025</option>
+                                </select>
+                            </div>
+                            <div class="weekdays">
+                                <div class="week-days">
+                                    <div class="icon">M</div>
+                                    <div class="icon">T</div>
+                                    <div class="icon">W</div>
+                                    <div class="icon">T</div>
+                                    <div class="icon">F</div>
+                                    <div class="icon">S</div>
+                                    <div class="icon">S</div>
+                                </div>
+                                <div class="dates">
+                                    <div class="icon">1</div>
+                                    <div class="icon">2</div>
+                                    <div class="icon">3</div>
+                                    <div class="icon">4</div>
+                                    <div class="icon">5</div>
+                                    <div class="icon">6</div>
+                                    <div class="icon">7</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="history-section">
+                        <div class="heading">See Previous Transactions</div>
+                        <div class="heading-icon">History</div>
+                        <hr>
+                        <div class="traction-section">
+                            <div class="date">Oct 14th</div>
+                            <div class="indivisual-traction-section">
+                                <div class="indivisual-traction-section-upper-section">
+                                    <div class="amount">10,000</div>
+                                    <div class="symbol">RS</div>
+                                    <div class="expense-type">Expense</div>
+                                    <div class="recipient">Atul</div>
+                                </div>
+                                <div class="indivisual-traction-section-lower-section">
+                                    <div class="categories">
+                                        <div class="tag">
+                                            <div class="icon">icon</div>
+                                            <div class="category-name">Category1</div>
+                                        </div>
+                                        <div class="tag">
+                                            <div class="icon">icon</div>
+                                            <div class="category-name">Category2</div>
+                                        </div>
+                                    </div>
+                                    <div class="buttons">
+                                        <div class="edit">Edit</div>
+                                        <div class="delete">Delete</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <div class="footer">
+        <div>DISCLAIMER : This communication (including any attachments) is for the use of the intended recipient(s) only and may contain information that is confidential, privileged or legally protected. Any unauthorized use or dissemination of this communication is strictly prohibited. If you have received this communication in error, please immediately notify the sender by return e-mail message and delete all copies of the original communication including attachments. Thank you for your cooperation.</div>
+    </div>
+ </div>
