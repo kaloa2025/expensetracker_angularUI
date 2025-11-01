@@ -167,17 +167,6 @@
     color: #eeeeee;
 }
 
-
-.container .right-service-section
-{
-    padding: 0%;
-    width: 90%;
-    float: right;
-    background-color: #f5f5f5;
-    display: flex;
-    flex-direction: column;
-}
-
 .footer
 {
     text-align: center;
@@ -186,3 +175,239 @@
     color: rgb(155, 155, 155);
     background-color: rgb(248, 247, 247);
 }
+
+
+.right-service-section
+{
+    padding: 0%;
+    width: 90%;
+    padding-left: 1%;
+    float: right;
+    display: flex;
+    flex-direction: row;
+    margin-top: 1%;
+}
+
+/* left-service-section */
+.left-service-section 
+{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* scan-expense-section */
+.scan-expense-section 
+{
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.scan-expense-section .scan-image
+{
+    width: 30%;
+    margin-left: 5%;
+    align-self:flex-start;
+}
+
+.scan-bttn
+{
+    margin-top: 5%;
+    background-color: #373737;
+    color: #f5f5f5;
+    letter-spacing: 1px;
+    padding: 3% 2%;
+    width: 50%;
+    cursor: pointer;
+    margin-bottom: 3%;
+}
+
+/* description (duplicate: .scan-expense-section, .form) */
+.scan-expense-section .description 
+{
+    font-size: x-small;
+    display: none;
+}
+
+.scan-bttn:hover + .description
+{
+    display: block;
+    margin-bottom: 5%;
+}
+
+.form .description {}
+
+/* category-section */
+.category-section {}
+
+/* add-category-section */
+.add-category-section {}
+
+/* new-category-icon */
+.new-category-icon {}
+
+/* icon-label */
+.icon-label {}
+
+/* name-label */
+.name-label {}
+
+/* category-name (duplicate: .add-category-section input, .category-tag, .tag) */
+.add-category-section .category-name {}
+.category-tag .category-name {}
+.tag .category-name {}
+
+/* bttns */
+.bttns {}
+
+/* add-category-bttn */
+.add-category-bttn {}
+
+/* cancel-bttn */
+.cancel-bttn {}
+
+/* search-bar */
+.search-bar {}
+
+/* category-list */
+.category-list {}
+
+/* category-tag */
+.category-tag {}
+
+/* category-edit-bttn */
+.category-edit-bttn {}
+
+/* bar-graph-section */
+.bar-graph-section {}
+
+/* bar-graph */
+.bar-graph {}
+
+/* grpah-description */
+.grpah-description {}
+
+/* new-expense */
+.new-expense {}
+
+/* new-expense-form */
+.new-expense-form {}
+
+/* header (duplicate: .new-expense-form, .calender) */
+.new-expense-form .header {}
+.calender .header {}
+
+/* heading-icon */
+.heading-icon {}
+
+/* heading (duplicate: .profile-display, .new-expense-form .header, .history-section) */
+.profile-display .heading {}
+.new-expense-form .header .heading {}
+.history-section .heading {}
+
+/* amount-section */
+.amount-section {}
+
+/* amount (duplicate: .amount-section input, .indivisual-traction-section-upper-section) */
+.amount-section .amount {}
+.indivisual-traction-section-upper-section .amount {}
+
+/* amount-symbol */
+.amount-symbol {}
+
+/* form */
+.form {}
+
+/* revicer-name */
+.revicer-name {}
+
+/* expense-date */
+.expense-date {}
+
+/* date */
+.date {}
+
+/* month (duplicate: .expense-date, .calender .header, .calender .header select) */
+.expense-date .month {}
+.calender .header .month {}
+.calender .header select.month {}
+
+/* year (duplicate: .expense-date, .calender .header, .calender .header select) */
+.expense-date .year {}
+.calender .header .year {}
+.calender .header select.year {}
+
+/* expense-type (duplicate: .form, .indivisual-traction-section-upper-section) */
+.form .expense-type {}
+.indivisual-traction-section-upper-section .expense-type {}
+
+/* type-option */
+.type-option {}
+
+/* category-select */
+.category-select {}
+
+/* add-bttn */
+.add-bttn {}
+
+/* calender */
+.calender {}
+
+/* weekdays */
+.weekdays {}
+
+/* week-days */
+.week-days {}
+
+/* icon (duplicate: .week-days, .dates, .tag) */
+.week-days .icon {}
+.dates .icon {}
+.tag .icon {}
+
+/* dates */
+.dates {}
+
+/* history-section */
+.history-section {}
+
+/* heading-icon */
+.heading-icon {}
+
+/* traction-section */
+.traction-section {}
+
+/* date (duplicate: .expense-date, .traction-section) */
+.traction-section .date {}
+
+/* indivisual-traction-section */
+.indivisual-traction-section {}
+
+/* indivisual-traction-section-upper-section */
+.indivisual-traction-section-upper-section {}
+
+/* symbol */
+.symbol {}
+
+/* recipient */
+.recipient {}
+
+/* indivisual-traction-section-lower-section */
+.indivisual-traction-section-lower-section {}
+
+/* categories */
+.categories {}
+
+/* tag */
+.tag {}
+
+/* buttons */
+.buttons {}
+
+/* edit */
+.edit {}
+
+/* delete */
+.delete {}
