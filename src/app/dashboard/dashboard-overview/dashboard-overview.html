@@ -24,54 +24,66 @@
             <div class = "right-service-section">
                 <div class = "left-service-section">
                     <div class="scan-expense-section"> 
-                        <img class="scan-image" src="/assets/scanner-icon.png" >
                         <div class="scan-bttn">SCAN/UPLOAD</div>
                         <div class="description">Scan your Receipt, Add Transaction Now!</div>
                     </div>
                     <div class="category-section">
-                        <div class="add-category-section">
-                            <div>New Category</div>
+                        <div class="category-header">
+                            <div class="icon" *ngIf="showAddCategory" (click)="toggleAddCategory()">x</div>
+                            <div class="icon" *ngIf="!showAddCategory" (click)="toggleAddCategory()">+</div>
+                            <div class="new-category-bttn" (click)="toggleAddCategory()" [ngClass]="{'active':showAddCategory}">New Category</div>
+                        </div>
+                        <div class="add-category-section" *ngIf="showAddCategory">
                             <div class="new-category-icon">ICON</div>
                             <div class="icon-label">Select an ion suitable for this category</div>
                             <div class="name-label">Name</div>
-                            <input class="category-name" type="text" placeholder="category name"/>
+                            <input class="category-name" type="text" placeholder="Enter Category Name" name="category-name"/>
                             <div class="bttns">
                                 <div class="add-category-bttn">Add Category</div>
                                 <div class="cancel-bttn">Cancel</div>
                             </div>
                         </div>
-                        <input class="search-bar" placeholder="Search Category"/>
+                        <input class="search-bar" placeholder="Search Category" name="search-bar"/>
                         <div class="category-list">
                             <div class="category-tag">
-                                <img>
-                                <div class="category-name">category1</div>
-                                <div class="category-edit-bttn">✏️</div>
+                                <img class="category-icon" src="/assets/microsoft-logo.png">
+                                <div class="category-name">cate1</div>
                             </div>
                             <div class="category-tag">
-                                <img>
+                                <img class="category-icon" src="/assets/microsoft-logo.png">
                                 <div class="category-name">category2</div>
-                                <div class="category-edit-bttn">✏️</div>
+                            </div>
+                            <div class="category-tag" src="">
+                                <img class="category-icon" src="/assets/microsoft-logo.png">
+                                <div class="category-name">category3</div>
                             </div>
                         </div>
                     </div>
                     <div class="bar-graph-section">
-                        <div class="bar-graph">Grpah</div>
+                        <div class="bar-graph-heading">GRAPH</div>
+                          <div class="bar-graph">
+                            <div class="bar">10%</div>
+                            <div class="bar">24%</div>
+                            <div class="bar">40%</div>
+                            <div class="bar">30%</div>
+                            <div class="bar">18%</div>
+                        </div>
                         <div class="grpah-description">This Grpah computes expenses tracked for each category</div>
                     </div>
                 </div>
-                <div class = "right-service-section">
+                <div class = "right-service-service-section">
                     <div class="new-expense"> 
                         <div class="new-expense-form">
                             <div class="header">
                                 <div class="heading-icon">x</div>
-                                <div class="heading">New Expense</div>
+                                <div class="heading">NEW TRANSACTION</div>
                             </div>
                             <div class="amount-section">
-                                <input type="number" placeholder="00" class="amount">
+                                <input placeholder="0.0" class="amount">
                                 <div class="amount-symbol">RS</div>
                             </div>
                             <div class="form">
-                                <input class="description" placeholder="Description">
+                                <input class="description" placeholder="Description (Optional)">
                                 <input class="revicer-name" placeholder="Enter Receiver's Name">
                                 <div class="expense-date">
                                     <input type="number" placeholder="dd" class="date" maxlength="2">
@@ -122,35 +134,46 @@
                                     <div class="icon">7</div>
                                 </div>
                             </div>
+                            <div class="today-bttn">Select Today</div>
                         </div>
                     </div>
                     <div class="history-section">
-                        <div class="heading">See Previous Transactions</div>
-                        <div class="heading-icon">History</div>
-                        <hr>
-                        <div class="traction-section">
-                            <div class="date">Oct 14th</div>
-                            <div class="indivisual-traction-section">
-                                <div class="indivisual-traction-section-upper-section">
-                                    <div class="amount">10,000</div>
-                                    <div class="symbol">RS</div>
-                                    <div class="expense-type">Expense</div>
-                                    <div class="recipient">Atul</div>
-                                </div>
-                                <div class="indivisual-traction-section-lower-section">
-                                    <div class="categories">
-                                        <div class="tag">
-                                            <div class="icon">icon</div>
-                                            <div class="category-name">Category1</div>
-                                        </div>
-                                        <div class="tag">
-                                            <div class="icon">icon</div>
-                                            <div class="category-name">Category2</div>
+                        <div class="heading">PREVIOUS TRANSACTIONS</div>                        
+                        <div class="transaction-history-container">
+                        <!-- Oct 14th -->
+                        <div class="th-date-group">
+                            <div class="th-date-header">
+                                <div class="th-date-dot"></div>
+                                <div class="th-date-label">Oct 14th</div>
+                            </div>
+                            <div class="th-transactions">
+                                <div class="th-transaction-card">
+                                    <div class="th-transaction-header">
+                                        <div class="th-transaction-left">
+                                            <div>
+                                                <div>  
+                                                    <div class="th-recipient">from Sarah</div>
+                                                     <div class="th-transaction-time">Dec 10</div>
+                                                </div>
+                                                <div class="th-amount-badge th-income">
+                                                    <span class="th-amount-symbol">⇲ </span>
+                                                    <span class="th-amount">₹5,500</span>
+                                                </div>
+                                            </div>
+                                            <div class="th-type-badge th-income">Income</div>
                                         </div>
                                     </div>
-                                    <div class="buttons">
-                                        <div class="edit">Edit</div>
-                                        <div class="delete">Delete</div>
+                                    <div class="th-transaction-footer">
+                                         <div class="th-categories">
+                                            <div class="th-category-tag">
+                                                <img class="th-category-icon" src="/assets/microsoft-logo.png"/>
+                                                <span>Freelance</span>
+                                            </div>
+                                            <div class="th-actions">
+                                        <button class="th-action-btn th-edit">Edit</button>
+                                        <button class="th-action-btn th-delete">Delete</button>
+                                    </div>
+                                    </div>
                                     </div>
                                 </div>
                             </div>
@@ -159,7 +182,8 @@
                 </div>
             </div>
         </div>
+    </div>
     <div class="footer">
         <div>DISCLAIMER : This communication (including any attachments) is for the use of the intended recipient(s) only and may contain information that is confidential, privileged or legally protected. Any unauthorized use or dissemination of this communication is strictly prohibited. If you have received this communication in error, please immediately notify the sender by return e-mail message and delete all copies of the original communication including attachments. Thank you for your cooperation.</div>
     </div>
- </div>
+</div>
