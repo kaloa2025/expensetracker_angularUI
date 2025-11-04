@@ -17,7 +17,7 @@
     justify-content: center;
     box-sizing: border-box;
     position: fixed;
-    gap: 3%;
+    gap: 1%;
     font-size: 15px;
     letter-spacing: 1px;
 }
@@ -101,7 +101,7 @@
     z-index: 1000;
     position: relative;
     background-color: #ffffff;
-    margin-bottom: -3%;
+    margin-bottom: -2%;
     width: fit-content;
 }
 
@@ -109,9 +109,11 @@
 {
     z-index: -1;
     text-align: center;
-    padding: 8% 1%;
+    padding: 8% 0%;
+    background-color: #ffffff;
     border : 1px solid #d8d8d8;
     margin-bottom: 7%;
+    width: 100%;
 }
 
 .email:hover, .username:hover
@@ -158,6 +160,13 @@
     border : 1px solid #d8d8d8;
     text-align: center;
     cursor: pointer;
+}
+
+.quick-links .open
+{
+    background-color: #373737;
+    color: #fcfcfc;
+    border: none;
 }
 
 .quick-links div:hover
@@ -210,12 +219,14 @@
 {
     margin-top: 5%;
     background-color: #373737;
-    color: #f5f5f5;
+    color: #ffffff;
     letter-spacing: 1px;
     padding: 15% 0%;
     width: 100%;
     cursor: pointer;
     margin-bottom: 3%;
+    text-align: center;
+    border: none;
 }
 
 .scan-expense-section .description 
@@ -453,8 +464,10 @@
     font-size: x-small;
 }
 
-.right-service-service-section
+.right-service-service-section .new-heading-icon
 {
+    cursor: pointer;
+    margin-bottom: 3%;
 }
 
 /* new-expense */
@@ -489,6 +502,7 @@
 .heading-icon {
     float: left;
     font-size: 10px;
+    cursor: pointer;
 }
 
 .new-expense-form .header .heading {
@@ -603,7 +617,8 @@ input:focus {
 /* type-option */
 .type-option {
     width: 100%;
-    padding: 3% 5%;
+    padding: 3%;
+    text-align: center;
     border: 1px solid #b8b8b8;
     cursor: pointer;
 }
@@ -619,6 +634,64 @@ input:focus {
     text-indent: 10px;
     border: 1px solid #b8b8b8;
     margin-bottom: 3%;
+}
+
+.category-tag.selected {
+  border: 2px solid #007bff;
+  background: #e6f0ff;
+}
+.category-actions {
+  margin-top: 1em;
+  display: flex;
+  gap: 1em;
+  color: #373737;
+  justify-content: right;
+}
+
+.category-actions .editbttn
+{
+  cursor: pointer;
+  border: 1px solid #373737;
+  padding: 2%;
+}
+
+.category-actions .deletebttn
+{
+  cursor: pointer;
+  background-color: #373737;
+  color: #fcfcfc;
+  padding: 2%;
+}
+
+.delete-popup {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+.popup-content {
+  background: #fff;
+  padding: 2em;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.popup-content button{
+    padding: 3% 5%;
+    border: 1px solid #373737;
+    background-color: #ffffff;
+    text-align: center;
+    cursor: pointer;
+    margin: 2%;
+}
+
+.popup-content button:hover
+{
+    background-color: #373737;
+    color: #ffffff;
 }
 
 /* add-bttn */
@@ -720,9 +793,8 @@ input:focus {
 }
 
 /* history-section */
-.history-section 
+.history-section .heading
 {
-
 }
 
 

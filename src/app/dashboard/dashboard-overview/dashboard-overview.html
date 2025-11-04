@@ -1,30 +1,30 @@
 <div class="main-component">
     <div class = "navbar">
-        <div class="logo">HOME</div>
+        <div class="logo" (click)="toggleExpense()">NEW TRANSACTION</div>
         <div class="signout-btn">LOG OUT</div>
     </div>
         <div class = "container">
             <div class = "left-profile-section">
                 <div class = "profile-display">
                     <div class="heading">HELLO,</div>
-                    <div class = "details">
+                    <form [formGroup]="profileForm" class = "details">
                         <div class="label">Username</div>
-                        <div class="username">Username!</div>
+                        <input class="username" formControlName="username" placeholder="Username!"/>
                         <div class="label">Email</div>
-                        <div class="email">Email</div>
-                    </div>
-                    <div class="update-bttn">EDIT</div>
+                        <input class="email" formControlName="email" placeholder="Email"/>
+                    </form>
+                    <div class="update-bttn" (click)="editMode?updateProfile():editFormActivate()">{{editMode?'UPDATE':'EDIT'}}</div>
                 </div>
                 <hr>
                 <div class="quick-links">
-                    <div>± New Expense</div>
+                    <div (click)="toggleExpense()"[ngClass]="{'open':isExpenseOpen}">± New Expense</div>
                     <div>◙ Get Report</div>
                 </div>
             </div>
             <div class = "right-service-section">
                 <div class = "left-service-section">
                     <div class="scan-expense-section"> 
-                        <div class="scan-bttn">SCAN/UPLOAD</div>
+                        <div class="scan-bttn" (click)="scanUploadImage()">SCAN/UPLOAD</div>
                         <div class="description">Scan your Receipt, Add Transaction Now!</div>
                     </div>
                     <div class="category-section">
@@ -37,27 +37,38 @@
                             <div class="new-category-icon">ICON</div>
                             <div class="icon-label">Select an ion suitable for this category</div>
                             <div class="name-label">Name</div>
-                            <input class="category-name" type="text" placeholder="Enter Category Name" name="category-name"/>
+                            <input class="category-name" type="text" placeholder="Enter Category Name" name="category-name" *ngIf="editMode"/>
                             <div class="bttns">
-                                <div class="add-category-bttn">Add Category</div>
-                                <div class="cancel-bttn">Cancel</div>
+                                <div class="add-category-bttn" (click)="saveCategory(editCategoryData)">{{ editMode ? 'Save Changes' : 'Add Category' }}</div>
+                                <div class="cancel-bttn" (click)="showAddCategory = false; editMode=false;">Cancel</div>
                             </div>
                         </div>
                         <input class="search-bar" placeholder="Search Category" name="search-bar"/>
                         <div class="category-list">
-                            <div class="category-tag">
+                            <div class="category-tag" (click)="selectCategory(1)">
                                 <img class="category-icon" src="/assets/microsoft-logo.png">
                                 <div class="category-name">cate1</div>
                             </div>
-                            <div class="category-tag">
+                            <div class="category-tag" (click)="selectCategory(2)">
                                 <img class="category-icon" src="/assets/microsoft-logo.png">
                                 <div class="category-name">category2</div>
                             </div>
-                            <div class="category-tag" src="">
+                            <div class="category-tag" (click)="selectCategory(3)">
                                 <img class="category-icon" src="/assets/microsoft-logo.png">
                                 <div class="category-name">category3</div>
                             </div>
                         </div>
+                        <div *ngIf="selectedCategoryIndex!=null" class="category-actions">
+                            <div (click)="editCategory()" class="editbttn">Edit</div>
+                            <div (click)="confirmDeleteCategory()" class="deletebttn">Delete</div>
+                        </div>
+                    </div>
+                    <div class="delete-popup" *ngIf="showDeletePopup">
+                    <div class="popup-content">
+                        <p>Are you sure you want to delete this category : {{selectCategory.name}}?</p>
+                        <button (click)="deleteCategory()">Yes, Delete</button>
+                        <button (click)="cancelDelete()">Cancel</button>
+                    </div>
                     </div>
                     <div class="bar-graph-section">
                         <div class="bar-graph-heading">GRAPH</div>
@@ -72,10 +83,10 @@
                     </div>
                 </div>
                 <div class = "right-service-service-section">
-                    <div class="new-expense"> 
+                    <div class="new-heading-icon" (click)="toggleExpense()">⨉</div>
+                    <div class="new-expense" *ngIf="isExpenseOpen"> 
                         <div class="new-expense-form">
                             <div class="header">
-                                <div class="heading-icon">x</div>
                                 <div class="heading">NEW TRANSACTION</div>
                             </div>
                             <div class="amount-section">
@@ -91,10 +102,10 @@
                                     <input type="number" placeholder="yyyy" class="year" maxlength="4">
                                 </div>
                                 <div class="expense-type">
-                                    <div class="type-option">Expense</div>
-                                    <div class="type-option">Income</div>
-                                    <div class="type-option">Investment</div>
-                                    <div class="type-option">Other</div>
+                                    <div class="type-option">⇱ Expense</div>
+                                    <div class="type-option">⇲ Income</div>
+                                    <div class="type-option">⇵ Investment</div>
+                                    <div class="type-option">± Other</div>
                                 </div>
                                 <select class="category-select" id="category-dropdown" name="categoryOption">
                                     <option value="option1">category1</option>
