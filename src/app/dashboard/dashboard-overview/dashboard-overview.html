@@ -37,7 +37,7 @@
                             <div class="new-category-icon">ICON</div>
                             <div class="icon-label">Select an ion suitable for this category</div>
                             <div class="name-label">Name</div>
-                            <input class="category-name" type="text" placeholder="Enter Category Name" name="category-name" *ngIf="editMode"/>
+                            <input class="category-name" type="text" placeholder="Enter Category Name" name="category-name"/>
                             <div class="bttns">
                                 <div class="add-category-bttn" (click)="saveCategory(editCategoryData)">{{ editMode ? 'Save Changes' : 'Add Category' }}</div>
                                 <div class="cancel-bttn" (click)="showAddCategory = false; editMode=false;">Cancel</div>
@@ -95,7 +95,7 @@
                             </div>
                             <div class="form">
                                 <input class="description" placeholder="Description (Optional)">
-                                <input class="revicer-name" placeholder="Enter Receiver's Name">
+                                <input class="revicer-name" placeholder="Enter Receiver's / Sender's Name">
                                 <div class="expense-date">
                                     <input type="number" placeholder="dd" class="date" maxlength="2">
                                     <input type="number" placeholder="mm" class="month" maxlength="2">
