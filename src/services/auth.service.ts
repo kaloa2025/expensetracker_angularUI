@@ -23,6 +23,13 @@ export interface LoginRequest
   password:string;
 }
 
+export interface UserInfo {
+  id: number;
+  email: string;
+  name: string;
+  role: string;
+}
+
 @Injectable({
   providedIn: 'root'
 })
@@ -82,12 +89,6 @@ export class AuthService {
 
 /*
 // auth.service.ts (continued)
-export interface UserInfo {
-  id: number;
-  email: string;
-  name: string;
-  roles: string[];
-}
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
@@ -171,7 +172,6 @@ export class AuthService {
   }
 }
 */
-
 
 /*
 Session 
