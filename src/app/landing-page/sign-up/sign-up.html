@@ -20,6 +20,7 @@
          *ngIf="(usernameInput.touched || usernameInput.dirty) || (submitted && usernameInput.invalid)">
         <li [class.valid]="username.length > 0">Required</li>
         <li [class.valid]="username.length <= 15">Max 15 characters</li>
+        <li [class.valid]="username.length >= 15">Min 3 characters</li>
         </ul>
         <div class="error"
             *ngIf="(usernameInput.invalid && (usernameInput.touched || usernameInput.dirty)) || (submitted && usernameInput.invalid)">

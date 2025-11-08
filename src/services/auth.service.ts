@@ -23,6 +23,14 @@ export interface LoginRequest
   password:string;
 }
 
+export interface SignUpRequest
+{
+  username:string;
+  email:string;
+  password:string;
+  repassword:string;
+}
+
 export interface UserInfo {
   id: number;
   email: string;
