@@ -188,7 +188,7 @@
 .right-service-section
 {
     padding: 0%;
-    width: 70%;
+    width: 78%;
     padding-left: 1%;
     gap: 4%;
     float: right;
@@ -482,7 +482,7 @@
 .new-expense-form 
 {
     margin-top: 1%;
-    width: 70%;
+    width: 65%;
     display: flex;
     flex-direction: column;
 }
@@ -630,6 +630,12 @@ input:focus {
 }
 /* category-select */
 .category-select {
+    padding: 2.5%;
+    text-indent: 10px;
+    border: 1px solid #b8b8b8;
+    margin-bottom: 3%;
+}
+.mode-of-payment-select {
     padding: 2.5%;
     text-indent: 10px;
     border: 1px solid #b8b8b8;

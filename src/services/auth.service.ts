@@ -31,6 +31,12 @@ export interface SignUpRequest
   repassword:string;
 }
 
+export interface EditProfileRequest
+{
+  username:string;
+  email:string;
+}
+
 export interface UserInfo {
   id: number;
   email: string;

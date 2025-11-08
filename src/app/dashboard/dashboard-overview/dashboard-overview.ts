@@ -15,7 +15,7 @@ export class DashboardOverview {
   showAddCategory = false;
   editMode = false;
   editCategoryData : any = null;
-  isExpenseOpen = true;
+  isExpenseOpen = false;
   selectedCategoryIndex: number | null = null;
   showDeletePopup = false;
 
@@ -23,7 +23,6 @@ export class DashboardOverview {
   {
     this.profileForm=this.fb.group({
       username:[{value:'Username', disabled : true}],
-      email:[{value:'Email', disabled : true}],
     });
   }
 

@@ -11,7 +11,7 @@
                         <div class="label">Username</div>
                         <input class="username" formControlName="username" placeholder="Username!"/>
                         <div class="label">Email</div>
-                        <input class="email" formControlName="email" placeholder="Email"/>
+                        <div class="email" placeholder="Email">Email</div>
                     </form>
                     <div class="update-bttn" (click)="editMode?updateProfile():editFormActivate()">{{editMode?'UPDATE':'EDIT'}}</div>
                 </div>
@@ -110,6 +110,10 @@
                                 <select class="category-select" id="category-dropdown" name="categoryOption">
                                     <option value="option1">category1</option>
                                     <option value="option1">category2</option>
+                                </select>
+                                <select class="mode-of-payment-select" id="mode-of-payment-dropdown" name="modeOfPaymentOption">
+                                    <option value="option1">UPI</option>
+                                    <option value="option1">CASH</option>
                                 </select>
                                 <div class="add-bttn">
                                     Add Expense
