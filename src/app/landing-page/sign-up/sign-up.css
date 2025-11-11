@@ -104,3 +104,31 @@ input
 .password-requirements li.valid {
   color: #4caf50;
 }
+
+.success-message {
+  background-color: #d4edda;
+  color: #155724;
+  padding: 10px;
+  border: 1px solid #c3e6cb;
+  border-radius: 4px;
+  margin-bottom: 15px;
+}
+
+.api-errors {
+  background-color: #f8d7da;
+  color: #721c24;
+  padding: 10px;
+  border: 1px solid #f5c6cb;
+  border-radius: 4px;
+  margin-bottom: 15px;
+}
+
+.api-errors ul {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.submitButton:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}

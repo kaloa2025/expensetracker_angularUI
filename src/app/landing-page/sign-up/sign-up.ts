@@ -1,10 +1,12 @@
-import { NgIf } from '@angular/common';
+import { CommonModule, NgFor, NgIf } from '@angular/common';
 import { Component } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, NgForm } from '@angular/forms';
+import { AuthService } from '../../../services/auth/auth.service';
+import { SignUpRequest } from '../../../services/auth/auth.models';
 
 @Component({
   selector: 'app-sign-up',
-  imports: [FormsModule, NgIf],
+  imports: [FormsModule, NgIf, CommonModule],
   templateUrl: './sign-up.html',
   styleUrl: './sign-up.css',
 })
@@ -15,6 +17,9 @@ export class SignUp {
   confirmPassword = '';
 
   submitted = false;
+  isLoading = false;
+  apiErrors: string[] = [];
+  successMessage = '';
 
   passwordValidations = {
     length: false,
@@ -23,6 +28,8 @@ export class SignUp {
     number: false,
     special: false
   };
+
+  constructor(private authService : AuthService){}
 
   validatePassword() {
     const pwd = this.password || '';
@@ -38,16 +45,23 @@ export class SignUp {
   }
 
   get usernameValid() {
-    return this.username.length > 0 && this.username.length <= 15;
+    return this.username.length > 3 && this.username.length <= 15;
   }
 
   get passwordsMatch() {
     return this.password && this.confirmPassword && this.password === this.confirmPassword;
   }
 
+  private isValidEmail(email: string): boolean {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  }
+
   onSubmit() {
     this.submitted = true;
-    
+    this.apiErrors = [];
+    this.successMessage = '';
+  
     if (
       this.usernameValid &&
       this.email &&
@@ -55,14 +69,49 @@ export class SignUp {
       this.allPasswordValidationsMet() &&
       this.passwordsMatch
     ) {
-      alert('Sign up successful!');
-      this.resetForm();
+      this.callSignUpAPI();
     }
   }
 
-  private isValidEmail(email: string): boolean {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return emailRegex.test(email);
+  private callSignUpAPI()
+  {
+    this.isLoading = true;
+    const signUpRequest:SignUpRequest={
+      userName : this.username,
+      email : this.email,
+      password : this.password,
+      rePassword : this.confirmPassword
+    };
+
+    this.authService.signUp(signUpRequest).subscribe
+    ({
+      next:(response)=>{
+        this.isLoading = false;
+        if(response.success)
+        {
+          this.successMessage = response.message || 'Account created successfully!';
+          //navigate to login for that user
+          setTimeout(()=>{
+            this.resetForm();
+          },2000);
+        }
+        else
+        {
+          this.apiErrors = response.errors || [response.message||'Signup failed! Try again later'];
+        }
+      },
+
+      error:(error)=>{
+        this.isLoading = false;
+        if (error.error && error.error.errors) {
+          this.apiErrors = error.error.errors;
+        } else if (error.error && error.error.message) {
+          this.apiErrors = [error.error.message];
+        } else {
+          this.apiErrors = ['An unexpected error occurred. Please try again.'];
+        }
+      }
+    });
   }
 
   private resetForm() {

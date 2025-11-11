@@ -3,7 +3,7 @@ import { CommonModule, NgIf } from "@angular/common";
 import { SignIn } from "./sign-in/sign-in";
 import { SignUp } from './sign-up/sign-up';
 import { Router, ActivatedRoute, RouterModule, NavigationEnd } from '@angular/router';
-import { AuthService } from '../../services/auth.service';
+import { AuthService } from '../../services/auth/auth.service';
 import { filter } from 'rxjs/operators';
 
 @Component({

@@ -2,6 +2,17 @@
   <div class="signUpHeader">
     <div> Get Started! </div>
   </div>
+
+  <div class="success-message" *ngIf="successMessage">
+    {{ successMessage }}
+  </div>
+
+  <div class="api-errors" *ngIf="apiErrors.length > 0">
+    <ul>
+      <li *ngFor="let error of apiErrors">{{ error }}</li>
+    </ul>
+  </div>
+
   <form class="signUpForm" (ngSubmit)="onSubmit()" #signUpForm="ngForm" novalidate>
     <div class="username">
       <div class="inputGroup">
@@ -14,13 +25,14 @@
           maxlength="15"
           [(ngModel)]="username"
           #usernameInput="ngModel"
+          [disabled]="isLoading"
         />
         <!-- Show requirements when touched/dirty OR when submitted and invalid -->
         <ul class="requirements"
          *ngIf="(usernameInput.touched || usernameInput.dirty) || (submitted && usernameInput.invalid)">
         <li [class.valid]="username.length > 0">Required</li>
         <li [class.valid]="username.length <= 15">Max 15 characters</li>
-        <li [class.valid]="username.length >= 15">Min 3 characters</li>
+        <li [class.valid]="username.length >= 3">Min 3 characters</li>
         </ul>
         <div class="error"
             *ngIf="(usernameInput.invalid && (usernameInput.touched || usernameInput.dirty)) || (submitted && usernameInput.invalid)">
@@ -40,6 +52,7 @@
         email
         [(ngModel)]="email"
         #emailInput="ngModel"
+        [disabled]="isLoading"
       />
       <!-- Show requirements when touched/dirty OR when submitted and invalid -->
       <ul class="requirements"
@@ -64,6 +77,7 @@
         [(ngModel)]="password"
         #passwordInput="ngModel"
         (input)="validatePassword()"
+        [disabled]="isLoading"
       />
       <!-- Show requirements when touched/dirty OR when submitted and password invalid -->
       <ul class="password-requirements"
@@ -89,6 +103,7 @@
         required
         [(ngModel)]="confirmPassword"
         #confirmPasswordInput="ngModel"
+        [disabled]="isLoading"
       />
       <!-- Show requirements when touched/dirty OR when submitted and passwords don't match -->
       <ul class="requirements"
@@ -112,9 +127,11 @@
           signUpForm.invalid ||
           !usernameValid ||
           !allPasswordValidationsMet() ||
-          !passwordsMatch
+          !passwordsMatch||
+          isLoading
         ">
-        Create an account
+        <span *ngIf="!isLoading">Create an account</span>
+        <span *ngIf="isLoading">Creating account...</span>
       </button>
     </div>
   </form>
