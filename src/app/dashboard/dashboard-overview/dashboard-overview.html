@@ -1,7 +1,7 @@
 <div class="main-component">
     <div class = "navbar">
         <div class="logo" (click)="toggleExpense()">NEW TRANSACTION</div>
-        <div class="signout-btn">LOG OUT</div>
+        <div class="signout-btn" (click)="logout()">LOG OUT</div>
     </div>
         <div class = "container">
             <div class = "left-profile-section">
@@ -9,9 +9,9 @@
                     <div class="heading">HELLO,</div>
                     <form [formGroup]="profileForm" class = "details">
                         <div class="label">Username</div>
-                        <input class="username" formControlName="username" placeholder="Username!"/>
+                        <input class="username" formControlName="username" placeholder={{username}}/>
                         <div class="label">Email</div>
-                        <div class="email" placeholder="Email">Email</div>
+                        <div class="email" placeholder="Email">{{email}}</div>
                     </form>
                     <div class="update-bttn" (click)="editMode?updateProfile():editFormActivate()">{{editMode?'UPDATE':'EDIT'}}</div>
                 </div>

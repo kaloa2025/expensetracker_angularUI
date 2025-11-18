@@ -3,10 +3,29 @@
     <div> Get Started! </div>
   </div>
 
-  <div class="success-message" *ngIf="successMessage">
-    {{ successMessage }}
+  <!-- SUCCESS POPUP -->
+  <div class="popup successPopup" *ngIf="showSuccessPopup">
+    <div class="popupContent">
+      <div class="popupHeader">
+        <strong>Success</strong>
+        <button class="closeBtn" (click)="closeSuccessPopup()">✕</button>
+      </div>
+      <div class="popupBody">{{ successMessage }}</div>
+    </div>
   </div>
 
+  <!-- ERROR POPUP -->
+  <div class="popup errorPopup" *ngIf="showErrorPopup">
+    <div class="popupContent">
+      <div class="popupHeader">
+        <strong>Error</strong>
+        <button class="closeBtn" (click)="closeErrorPopup()">✕</button>
+      </div>
+      <div class="popupBody">{{ errorMessage }}</div>
+    </div>
+  </div>
+
+  <!-- Validation messages (same as your previous behavior) -->
   <div class="api-errors" *ngIf="apiErrors.length > 0">
     <ul>
       <li *ngFor="let error of apiErrors">{{ error }}</li>
@@ -135,4 +154,15 @@
       </button>
     </div>
   </form>
+</div>
+
+
+<!-- LOADER OVERLAY WITH COUNTDOWN -->
+<div class="loaderOverlay" *ngIf="isLoading">
+  <div class="loaderBox">
+    <div class="spinner"></div>
+    <div class="loaderText">
+      Creating account...
+    </div>
+  </div>
 </div>

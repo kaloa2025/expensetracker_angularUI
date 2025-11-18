@@ -43,7 +43,7 @@ export interface LoginRequest
   password:string;
 }
 
-interface LoginResponse {
+export interface LoginResponse {
   success: boolean;
   token?: string;
   refreshToken? : string;

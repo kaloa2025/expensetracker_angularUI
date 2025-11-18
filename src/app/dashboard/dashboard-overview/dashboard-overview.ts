@@ -1,7 +1,9 @@
 import { CommonModule, NgIf } from '@angular/common';
-import { Component, input } from '@angular/core';
+import { Component, input, OnDestroy, OnInit } from '@angular/core';
 import { flush } from '@angular/core/testing';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AuthService } from '../../../services/auth/auth.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-dashboard-overview',
@@ -9,9 +11,10 @@ import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule } from '@angul
   templateUrl: './dashboard-overview.html',
   styleUrl: './dashboard-overview.css',
 })
-export class DashboardOverview {
+export class DashboardOverview implements OnInit, OnDestroy{
 
   profileForm : FormGroup;
+
   showAddCategory = false;
   editMode = false;
   editCategoryData : any = null;
@@ -19,11 +22,32 @@ export class DashboardOverview {
   selectedCategoryIndex: number | null = null;
   showDeletePopup = false;
 
-  constructor(private fb:FormBuilder)
+  username : string|null = '';
+  email : string|null = '';
+
+  private authSub?: Subscription;
+
+  constructor(private fb:FormBuilder, private authService:AuthService)
   {
     this.profileForm=this.fb.group({
-      username:[{value:'Username', disabled : true}],
+      username:[{value:this.username, disabled : true}],
     });
+  }
+
+  ngOnInit(): void {
+    this.authSub = this.authService.authState$.subscribe(
+      state=>{
+        if(!state || !state.claims) return;
+        const claims = state.claims;
+        this.username=claims.userName??'';
+        this.email = claims.email??'';
+        this.profileForm.patchValue({username : this.username});
+      }
+    )
+  }
+
+  ngOnDestroy(): void {
+    if (this.authSub) this.authSub.unsubscribe();
   }
 
   toggleAddCategory()
@@ -119,5 +143,10 @@ export class DashboardOverview {
   } else {
     // Add new category logic
   }
+  }
+
+  logout()
+  {
+    this.authService.logout(true);
   }
 }

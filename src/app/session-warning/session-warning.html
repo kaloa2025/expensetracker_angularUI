@@ -1,0 +1,9 @@
+<div *ngIf="secondsLeft !== null" class="session-warning-popup">
+  <div class="popup-box">
+    <h3>Session Expiring Soon</h3>
+    <p>Your session will expire in <strong>{{ secondsLeft }} seconds</strong>.</p>
+
+    <button (click)="extendSession()">Continue Session</button>
+    <button (click)="logoutNow()">Logout</button>
+  </div>
+</div>
